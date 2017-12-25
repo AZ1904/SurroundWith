@@ -24,7 +24,7 @@ namespace SurroundWith
         /// <summary>
         /// VS Package that provides this command, not null.
         /// </summary>
-        private readonly Package package;
+        private readonly Package _package;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="EnableDisableCommand"/> class.
@@ -33,20 +33,13 @@ namespace SurroundWith
         /// <param name="package">Owner package, not null.</param>
         private EnableDisableCommand(Package package)
         {
-            if (package == null)
-            {
-                throw new ArgumentNullException("package");
-            }
+            _package = package ?? throw new ArgumentNullException("package");
 
-            this.package = package;
+            if (!(ServiceProvider.GetService(typeof(IMenuCommandService)) is OleMenuCommandService commandService)) return;
 
-            OleMenuCommandService commandService = this.ServiceProvider.GetService(typeof(IMenuCommandService)) as OleMenuCommandService;
-            if (commandService != null)
-            {
-                var menuCommandID = new CommandID(CommandSet, CommandId);
-                var menuItem = new MenuCommand(this.MenuItemCallback, menuCommandID);
-                commandService.AddCommand(menuItem);
-            }
+            var menuCommandId = new CommandID(CommandSet, CommandId);
+            var menuItem = new MenuCommand(MenuItemCallback, menuCommandId);
+            commandService.AddCommand(menuItem);
         }
 
         /// <summary>
@@ -61,13 +54,7 @@ namespace SurroundWith
         /// <summary>
         /// Gets the service provider from the owner package.
         /// </summary>
-        private IServiceProvider ServiceProvider
-        {
-            get
-            {
-                return this.package;
-            }
-        }
+        private IServiceProvider ServiceProvider => _package;
 
         /// <summary>
         /// Initializes the singleton instance of the command.
@@ -87,12 +74,12 @@ namespace SurroundWith
         /// <param name="e">Event args.</param>
         private void MenuItemCallback(object sender, EventArgs e)
         {
-            string message = string.Format(CultureInfo.CurrentCulture, "Inside {0}.MenuItemCallback()", this.GetType().FullName);
+            string message = string.Format(CultureInfo.CurrentCulture, "Inside {0}.MenuItemCallback()", GetType().FullName);
             string title = "EnableDisableCommand";
 
             // Show a message box to prove we were here
             VsShellUtilities.ShowMessageBox(
-                this.ServiceProvider,
+                ServiceProvider,
                 message,
                 title,
                 OLEMSGICON.OLEMSGICON_INFO,

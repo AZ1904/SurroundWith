@@ -56,6 +56,7 @@
   <ItemGroup>
     <Compile Include="EnableDisableCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SurroundWithPackageGuids.cs" />
     <Compile Include="SurroundWithToolWindow.cs" />
     <Compile Include="SurroundWithToolWindowCommand.cs" />
     <Compile Include="SurroundWithToolWindowControl.xaml.cs">
@@ -165,6 +166,8 @@
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Collections" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Data" />
     <Reference Include="System.Design" />
     <Reference Include="System.Drawing" />
@@ -179,6 +182,7 @@
     <Content Include="Resources\SurroundWithToolWindowPackage.ico" />
     <VSCTCompile Include="SurroundWithToolWindowPackage.vsct">
       <ResourceName>Menus.ctmenu</ResourceName>
+      <Generator>VsctGenerator</Generator>
     </VSCTCompile>
   </ItemGroup>
   <ItemGroup>
