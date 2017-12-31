@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SurroundWith", "SurroundWith\SurroundWith.csproj", "{0245E336-EA22-4E79-9666-FD1FEA3FE3BB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SurroundWith", "SurroundWith\SurroundWith.csproj", "{0BA2B447-D99F-460D-8DA0-715EA4D9D528}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{0245E336-EA22-4E79-9666-FD1FEA3FE3BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0245E336-EA22-4E79-9666-FD1FEA3FE3BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0245E336-EA22-4E79-9666-FD1FEA3FE3BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0245E336-EA22-4E79-9666-FD1FEA3FE3BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BA2B447-D99F-460D-8DA0-715EA4D9D528}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BA2B447-D99F-460D-8DA0-715EA4D9D528}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BA2B447-D99F-460D-8DA0-715EA4D9D528}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BA2B447-D99F-460D-8DA0-715EA4D9D528}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

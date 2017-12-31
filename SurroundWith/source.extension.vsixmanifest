@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
   <Metadata>
-    <Identity Id="SurroundWith.0f0a3ad9-cc88-4356-9a6a-918ffdb42ce4" Version="1.0" Language="en-US" Publisher="Ali Zahid" />
+    <Identity Id="SurroundWith.d0807a5e-2b60-4ae4-b788-2c3d93a99c59" Version="1.0" Language="en-US" Publisher="Ali Zahid" />
     <DisplayName>SurroundWith</DisplayName>
     <Description>Empty VSIX Project.</Description>
   </Metadata>

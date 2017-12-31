@@ -25,20 +25,19 @@ namespace SurroundWith
     [PackageRegistration(UseManagedResourcesOnly = true)]
     [InstalledProductRegistration("#110", "#112", "1.0", IconResourceID = 400)] // Info on this package for Help/About
     [ProvideMenuResource("Menus.ctmenu", 1)]
-    [ProvideToolWindow(typeof(SurroundWithToolWindow))]
-    [Guid(SurroundWithToolWindowPackage.PackageGuidString)]
+    [Guid(CurlyBracesCommandPackage.PackageGuidString)]
     [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "pkgdef, VS and vsixmanifest are valid VS terms")]
-    public sealed class SurroundWithToolWindowPackage : Package
+    public sealed class CurlyBracesCommandPackage : Package
     {
         /// <summary>
-        /// SurroundWithToolWindowPackage GUID string.
+        /// CurlyBracesCommandPackage GUID string.
         /// </summary>
-        public const string PackageGuidString = "7bf7d551-8d14-4714-8d38-411f00f188c3";
+        public const string PackageGuidString = "8cc48922-f9a5-4f5b-bf9e-68ad318dca0c";
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SurroundWithToolWindow"/> class.
+        /// Initializes a new instance of the <see cref="CurlyBracesCommand"/> class.
         /// </summary>
-        public SurroundWithToolWindowPackage()
+        public CurlyBracesCommandPackage()
         {
             // Inside this method you can place any initialization code that does not require
             // any Visual Studio service because at this point the package object is created but
@@ -54,9 +53,8 @@ namespace SurroundWith
         /// </summary>
         protected override void Initialize()
         {
-            SurroundWithToolWindowCommand.Initialize(this);
+            CurlyBracesCommand.Initialize(this);
             base.Initialize();
-            EnableDisableCommand.Initialize(this);
         }
 
         #endregion Package Members

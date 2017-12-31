@@ -9,43 +9,50 @@ namespace SurroundWith
     /// <summary>
     /// Command handler
     /// </summary>
-    internal sealed class EnableDisableCommand
+    internal sealed class CurlyBracesCommand
     {
         /// <summary>
         /// Command ID.
         /// </summary>
-        public const int CommandId = 256;
+        public const int CommandId = 0x0100;
 
         /// <summary>
         /// Command menu group (command set GUID).
         /// </summary>
-        public static readonly Guid CommandSet = new Guid("3c58f801-7cbe-4192-8838-8db71f47ce5f");
+        public static readonly Guid CommandSet = new Guid("9b8861f8-b5d0-4ed5-843d-01e712f925fe");
 
         /// <summary>
         /// VS Package that provides this command, not null.
         /// </summary>
-        private readonly Package _package;
+        private readonly Package package;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="EnableDisableCommand"/> class.
+        /// Initializes a new instance of the <see cref="CurlyBracesCommand"/> class.
         /// Adds our command handlers for menu (commands must exist in the command table file)
         /// </summary>
         /// <param name="package">Owner package, not null.</param>
-        private EnableDisableCommand(Package package)
+        private CurlyBracesCommand(Package package)
         {
-            _package = package ?? throw new ArgumentNullException("package");
+            if (package == null)
+            {
+                throw new ArgumentNullException("package");
+            }
 
-            if (!(ServiceProvider.GetService(typeof(IMenuCommandService)) is OleMenuCommandService commandService)) return;
+            this.package = package;
 
-            var menuCommandId = new CommandID(CommandSet, CommandId);
-            var menuItem = new MenuCommand(MenuItemCallback, menuCommandId);
-            commandService.AddCommand(menuItem);
+            OleMenuCommandService commandService = this.ServiceProvider.GetService(typeof(IMenuCommandService)) as OleMenuCommandService;
+            if (commandService != null)
+            {
+                var menuCommandID = new CommandID(CommandSet, CommandId);
+                var menuItem = new MenuCommand(this.MenuItemCallback, menuCommandID);
+                commandService.AddCommand(menuItem);
+            }
         }
 
         /// <summary>
         /// Gets the instance of the command.
         /// </summary>
-        public static EnableDisableCommand Instance
+        public static CurlyBracesCommand Instance
         {
             get;
             private set;
@@ -54,7 +61,13 @@ namespace SurroundWith
         /// <summary>
         /// Gets the service provider from the owner package.
         /// </summary>
-        private IServiceProvider ServiceProvider => _package;
+        private IServiceProvider ServiceProvider
+        {
+            get
+            {
+                return this.package;
+            }
+        }
 
         /// <summary>
         /// Initializes the singleton instance of the command.
@@ -62,7 +75,7 @@ namespace SurroundWith
         /// <param name="package">Owner package, not null.</param>
         public static void Initialize(Package package)
         {
-            Instance = new EnableDisableCommand(package);
+            Instance = new CurlyBracesCommand(package);
         }
 
         /// <summary>
@@ -74,12 +87,12 @@ namespace SurroundWith
         /// <param name="e">Event args.</param>
         private void MenuItemCallback(object sender, EventArgs e)
         {
-            string message = string.Format(CultureInfo.CurrentCulture, "Inside {0}.MenuItemCallback()", GetType().FullName);
-            string title = "EnableDisableCommand";
+            string message = string.Format(CultureInfo.CurrentCulture, "Inside {0}.MenuItemCallback()", this.GetType().FullName);
+            string title = "CurlyBracesCommand";
 
             // Show a message box to prove we were here
             VsShellUtilities.ShowMessageBox(
-                ServiceProvider,
+                this.ServiceProvider,
                 message,
                 title,
                 OLEMSGICON.OLEMSGICON_INFO,
