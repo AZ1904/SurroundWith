@@ -29,6 +29,8 @@ namespace SurroundWith
     [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "pkgdef, VS and vsixmanifest are valid VS terms")]
     public sealed class CurlyBracesCommandPackage : Package
     {
+        private readonly ToggleCommands _toggleCommands = new ToggleCommands();
+        
         /// <summary>
         /// CurlyBracesCommandPackage GUID string.
         /// </summary>
@@ -53,7 +55,7 @@ namespace SurroundWith
         /// </summary>
         protected override void Initialize()
         {
-            CurlyBracesCommand.Initialize(this);
+            CurlyBracesCommand.Initialize(this, _toggleCommands);
             base.Initialize();
         }
 
