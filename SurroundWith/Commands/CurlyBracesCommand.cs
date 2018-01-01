@@ -4,7 +4,7 @@ using System;
 using System.ComponentModel.Design;
 using System.Globalization;
 
-namespace SurroundWith
+namespace SurroundWith.Commands
 {
     /// <summary>
     /// Command handler
@@ -70,17 +70,6 @@ namespace SurroundWith
         /// <param name="e">Event args.</param>
         private void MenuItemCallback(object sender, EventArgs e)
         {
-            string message = string.Format(CultureInfo.CurrentCulture, "Inside {0}.MenuItemCallback()", GetType().FullName);
-            string title = "CurlyBracesCommand";
-
-            // Show a message box to prove we were here
-            VsShellUtilities.ShowMessageBox(
-                ServiceProvider,
-                message,
-                title,
-                OLEMSGICON.OLEMSGICON_INFO,
-                OLEMSGBUTTON.OLEMSGBUTTON_OK,
-                OLEMSGDEFBUTTON.OLEMSGDEFBUTTON_FIRST);
         }
     }
 }

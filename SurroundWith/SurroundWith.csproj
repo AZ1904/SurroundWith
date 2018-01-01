@@ -54,7 +54,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="CurlyBracesCommand.cs" />
+    <Compile Include="Commands\Commands.cs" />
+    <Compile Include="Commands\CurlyBracesCommand.cs" />
+    <Compile Include="Commands\ToggleCommands.cs" />
     <Compile Include="CurlyBracesCommandPackage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

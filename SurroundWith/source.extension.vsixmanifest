@@ -3,7 +3,7 @@
     <Metadata>
         <Identity Id="SurroundWith.d0807a5e-2b60-4ae4-b788-2c3d93a99c59" Version="1.0" Language="en-US" Publisher="Ali Zahid" />
         <DisplayName>SurroundWith</DisplayName>
-        <Description xml:space="preserve">The quickest one-key shortcuts to surrounding a block of code with common code constructs such as curly braces, try-catch blocks, if statements and many more!</Description>
+        <Description xml:space="preserve">Quick one-key shortcuts to surround selected code with code constructs such as curly braces, try-catch blocks, if statements and many more!</Description>
         <License>Resources\LICENSE</License>
         <Tags>productivity</Tags>
     </Metadata>
