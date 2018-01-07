@@ -74,6 +74,8 @@ namespace SurroundWith.Commands
         /// <param name="e">Event args.</param>
         private void MenuItemCallback(object sender, EventArgs e)
         {
+            //https://msdn.microsoft.com/en-us/library/ms228776.aspx
+            //https://docs.microsoft.com/en-us/dotnet/api/envdte.textselection?redirectedfrom=MSDN&view=visualstudiosdk-2017
             var dte = (DTE2)ServiceProvider.GetService(typeof(DTE));
 
             if (dte.ActiveDocument == null) return;
@@ -82,7 +84,17 @@ namespace SurroundWith.Commands
             string text = selection.Text;
 
             if (!string.IsNullOrEmpty(text))
+            {
                 selection.Text = _toggle.ToggleCurlyBraces(text);
+                //selection.SmartFormat();
+
+                //selection.GotoLine(selection.TopPoint.Line);
+                ////selection.NewLine(1);
+                //selection.Insert($"{{{Environment.NewLine}", (int)vsInsertFlags.vsInsertFlagsInsertAtStart);
+                //selection.GotoLine(selection.BottomPoint.Line);
+                ////selection.NewLine(1);
+                //selection.Insert($"{Environment.NewLine}}}", (int)vsInsertFlags.vsInsertFlagsInsertAtEnd);
+            }
             else
             {
                 //todo: show something in the status-bar
